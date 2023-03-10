@@ -131,7 +131,7 @@ loadNames().then(
   
     console.log(cards)
   
-    searchBox.addEventListener("input", liveSearch());
+   
 
       function liveSearch() {
         searchBox.value;
@@ -151,7 +151,7 @@ loadNames().then(
       let typingTimer;               
       let typeInterval = 200;  
     
-      searchBox.addEventListener('keyup', () => {
+      searchBox.addEventListener('input', () => {
           clearTimeout(typingTimer);
           typingTimer = setTimeout(liveSearch, typeInterval);
       });
