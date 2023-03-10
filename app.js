@@ -150,11 +150,15 @@ loadNames().then(
       //A little delay
       let typingTimer;               
       let typeInterval = 200;  
-    
-      searchBox.addEventListener('input', () => {
+
+['input','search'].forEach( evt => 
+    element.addEventListener(evt, () => {
           clearTimeout(typingTimer);
           typingTimer = setTimeout(liveSearch, typeInterval);
-      });
+      });)
+);
+    
+      
   }
 );
 
