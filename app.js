@@ -152,7 +152,7 @@ loadNames().then(
       let typeInterval = 200;  
 
 ['input','search'].forEach( evt => 
-    element.addEventListener(evt, () => {
+    searchBox.addEventListener(evt, () => {
           clearTimeout(typingTimer);
           typingTimer = setTimeout(liveSearch, typeInterval);
       });)
