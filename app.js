@@ -11,36 +11,35 @@ window.onload = function () {
 
 // Тази функция се ползва за скриване на сайдбара(header-a) на мобилна
 // когато се скролва надолу
-const browserWidth = Math.max(
-    document.body.scrollWidth,
-    document.documentElement.scrollWidth,
-    document.body.offsetWidth,
-    document.documentElement.offsetWidth,
-    document.documentElement.clientWidth
-  );
+// const browserWidth = Math.max(
+//     document.body.scrollWidth,
+//     document.documentElement.scrollWidth,
+//     document.body.offsetWidth,
+//     document.documentElement.offsetWidth,
+//     document.documentElement.clientWidth
+//   );
 
+// let prevScrollpos = window.pageYOffset;
+// const videoSections = document.querySelectorAll(".videoSection");
 
-let prevScrollpos = window.pageYOffset;
-const videoSections = document.querySelectorAll(".videoSection");
-
-if (browserWidth <= 640){
-  window.onscroll = function() {
-    let currentScrollPos = window.pageYOffset;
-      if (prevScrollpos < currentScrollPos) {
-        videoSections.forEach(element => {
-          element.classList.remove('scroll-mt-20');
-        });
-        document.getElementById("sidebar").classList.add('-top-24');
-      } else {
-        videoSections.forEach(element => {
-          element.classList.add('scroll-mt-20');
-        });
-        document.getElementById("sidebar").classList.remove('-top-24');
+// if (browserWidth <= 640){
+//   window.onscroll = function() {
+//     let currentScrollPos = window.pageYOffset;
+//       if (prevScrollpos < currentScrollPos) {
+//         videoSections.forEach(element => {
+//           element.classList.remove('scroll-mt-20');
+//         });
+//         document.getElementById("sidebar").classList.add('-top-24');
+//       } else {
+//         videoSections.forEach(element => {
+//           element.classList.add('scroll-mt-20');
+//         });
+//         document.getElementById("sidebar").classList.remove('-top-24');
         
-      }
-      prevScrollpos = currentScrollPos;
-    }
-}
+//       }
+//       prevScrollpos = currentScrollPos;
+//     }
+// }
 
 
 
@@ -59,6 +58,9 @@ async function loadNames() {
   result.objects.sort(function(a, b){
     return Number(b.release_date.slice(0, 4)) - Number(a.release_date.slice(0, 4));
   });
+
+
+
 
   result.objects.map((media) => {
     const ordinaryVideo = `<div class="video cursor-pointer group">
@@ -89,6 +91,8 @@ async function loadNames() {
       default:
         break;
     }
+
+  
 
  })
 
