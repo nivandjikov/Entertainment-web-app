@@ -1,0 +1,368 @@
+{
+    "objects": [
+        {
+            "cover_photo": "./covers/theGodFather.jpg",
+            "title": "The Godfather",
+            "release_date": "1972-03-14",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": false,
+            "id": 1
+        },
+        {
+            "cover_photo": "./covers/breakingBad.jpg",
+            "title": "Breaking Bad",
+            "release_date": "2008-01-20",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": true,
+            "id": 2
+        },
+        {
+            "cover_photo": "./covers/theShawshanksRedemption.jpg",
+            "title": "The Shawshank Redemption",
+            "release_date": "1994-09-23",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": false,
+            "id": 3
+        },
+        {
+            "cover_photo": "./covers/friends.jpg",
+            "title": "Friends",
+            "release_date": "1994-09-22",
+            "type": "TV Series",
+            "age_restriction": "TV-14",
+            "trending": true,
+            "id": 4
+        },
+        {
+            "cover_photo": "./covers/theDarkKnight.jpg",
+            "title": "The Dark Knight",
+            "release_date": "2008-07-18",
+            "type": "Movie",
+            "age_restriction": "PG-13",
+            "trending": false,
+            "id": 5
+        },
+        {
+            "cover_photo": "./covers/gameOfThrones.jpg",
+            "title": "Game of Thrones",
+            "release_date": "2011-04-17",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 6
+        },
+        {
+            "cover_photo": "./covers/schindlersList.jpg",
+            "title": "Schindler's List",
+            "release_date": "1993-11-30",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": false,
+            "id": 7
+        },
+        {
+            "cover_photo": "./covers/theOffice.png",
+            "title": "The Office",
+            "release_date": "2005-03-24",
+            "type": "TV Series",
+            "age_restriction": "TV-14",
+            "trending": true,
+            "id": 8
+        },
+        {   
+            "cover_photo": "./covers/pulpFiction.jpg",
+            "title": "Pulp Fiction",
+            "release_date": "1994-10-14",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": false,
+            "id": 9
+        },
+        {
+            "cover_photo": "https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3MjYtZGMzZWI1ZjhlOWJmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@.jpg",
+            "title": "Stranger Things",
+            "release_date": "2016-07-15",
+            "type": "TV Series",
+            "age_restriction": "TV-14",
+            "trending": true,
+            "id": 10
+        },
+        {
+            "cover_photo": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg",
+            "title": "The Silence of the Lambs",
+            "release_date": "1991-02-14",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": false,
+            "id": 11
+        },
+        {
+            "cover_photo": "https://m.media-amazon.com/images/M/MV5BZTEyNjBjYmYtYWYxYi00MmQyLThlYmItY2I4NzM1Mjg1MWYxXkEyXkFqcGdeQXVyMTU3ODI3MTk2.jpg",
+            "title": "The Crown",
+            "release_date": "2016-11-04",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 12
+        },
+        {
+            "cover_photo": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@.jpg",
+            "title": "Forrest Gump",
+            "release_date": "1994-07-06",
+            "type": "Movie",
+            "age_restriction": "PG-13",
+            "trending": false,
+            "id": 13
+        },
+        {
+            "cover_photo": "https://m.media-amazon.com/images/M/MV5BZGJjYzhjYTYtMDBjYy00OWU1LTg5OTYtNmYwOTZmZjE3ZDdhXkEyXkFqcGdeQXVyNTAyODkwOQ@@.jpg",
+            "title": "The Sopranos",
+            "release_date": "1999-01-10",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 14
+        },
+        {
+            "cover_photo": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg",
+            "title": "The Matrix",
+            "release_date": "1999-03-31",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": false,
+            "id": 15
+        },
+        {
+            "cover_photo": "https://m.media-amazon.com/images/M/MV5BMzNmM2U2ZDgtZjRlMC00YmE0LWJhMmEtNGU3ZjE1NjYyZjI1XkEyXkFqcGdeQXVyMzkyNTYxMjE@.jpg",
+            "title": "Stranger Things 2",
+            "release_date": "2017-10-27",
+            "type": "TV Series",
+            "age_restriction": "TV-14",
+            "trending": false,
+            "id": 16
+        },
+        {
+            "cover_photo": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@.jpg",
+            "title": "Inception",
+            "release_date": "2010-07-16",
+            "type": "Movie",
+            "age_restriction": "PG-13",
+            "trending": false,
+            "id": 17
+        },
+        {
+            "cover_photo": "https://m.media-amazon.com/images/M/MV5BYWI2YmI2ZmMtMTZjMC00MzMzLWI5ODItNDY1OTg3YjNmZmUxXkEyXkFqcGdeQXVyNDA5NTgxNjU@.jpg",
+            "title": "The Office (UK)",
+            "release_date": "2001-07-09",
+            "type": "TV Series",
+            "age_restriction": "TV-14",
+            "trending": false,
+            "id": 18
+        },
+        {
+            "cover_photo": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@.jpg",
+            "title": "The Lion King",
+            "release_date": "1994-06-15",
+            "type": "Movie",
+            "age_restriction": "G",
+            "trending": false,
+            "id": 19
+        },
+        {
+            "cover_photo": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@.jpg",
+            "title": "Breaking Bad: El Camino",
+            "release_date": "2019-10-11",
+            "type": "Movie",
+            "age_restriction": "TV-MA",
+            "trending": true,
+            "id": 20
+        },
+        {
+            "title": "Mindhunter",
+            "release_date": "2017-10-13",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 21
+        },
+        {
+            "title": "The Avengers",
+            "release_date": "2012-04-11",
+            "type": "Movie",
+            "age_restriction": "PG-13",
+            "trending": false,
+            "id": 22
+        },
+        {
+            "title": "The Haunting of Hill House",
+            "release_date": "2018-10-12",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 23
+        },
+        {
+            "title": "The Lord of the Rings: The Fellowship of the Ring",
+            "release_date": "2001-12-19",
+            "type": "Movie",
+            "age_restriction": "PG-13",
+            "trending": false,
+            "id": 24
+        },
+        {
+            "title": "Black Mirror",
+            "release_date": "2011-12-04",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 25
+        },
+        {
+            "title": "The Godfather: Part II",
+            "release_date": "1974-12-20",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": false,
+            "id": 26
+        },
+        {
+            "title": "Narcos",
+            "release_date": "2015-08-28",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 27
+        },
+        {
+            "title": "The Terminator",
+            "release_date": "1984-10-26",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": false,
+            "id": 28
+        },
+        {
+            "title": "The Handmaid's Tale",
+            "release_date": "2017-04-26",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 29
+        },
+        {
+            "title": "Stranger Things",
+            "release_date": "2016-07-15",
+            "type": "TV Series",
+            "age_restriction": "TV-14",
+            "trending": false,
+            "id": 30
+        },
+        {
+            "title": "Pulp Fiction",
+            "release_date": "1994-05-21",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": false,
+            "id": 31
+        },
+        {
+            "title": "Breaking Bad",
+            "release_date": "2008-01-20",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 32
+        },
+        {
+            "title": "The Matrix",
+            "release_date": "1999-03-31",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": true,
+            "id": 33
+        },
+        {
+            "title": "The Crown",
+            "release_date": "2016-11-04",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 34
+        },
+        {
+            "title": "Forrest Gump",
+            "release_date": "1994-06-22",
+            "type": "Movie",
+            "age_restriction": "PG-13",
+            "trending": false,
+            "id": 35
+        },
+        {
+            "title": "The Witcher",
+            "release_date": "2019-12-20",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 36
+        },
+        {
+            "title": "Back to the Future",
+            "release_date": "1985-07-03",
+            "type": "Movie",
+            "age_restriction": "PG",
+            "trending": false,
+            "id": 37
+        },
+        {
+            "title": "The Sopranos",
+            "release_date": "1999-01-10",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 38
+        },
+        {
+            "title": "Star Wars: Episode V - The Empire Strikes Back",
+            "release_date": "1980-05-17",
+            "type": "Movie",
+            "age_restriction": "PG",
+            "trending": false,
+            "id": 39
+        },
+        {
+            "title": "Peaky Blinders",
+            "release_date": "2013-09-12",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": false,
+            "id": 40
+        },
+        {
+            "title": "The Silence of the Lambs",
+            "release_date": "1991-02-14",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": false,
+            "id": 41
+        },
+        {
+            "title": "House of Cards",
+            "release_date": "2013-02-01",
+            "type": "TV Series",
+            "age_restriction": "TV-MA",
+            "trending": true,
+            "id": 42
+        },
+        {
+            "title": "The Shawshank Redemption",
+            "release_date": "1994-09-23",
+            "type": "Movie",
+            "age_restriction": "R",
+            "trending": false,
+            "id": 43
+        }
+    ]
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikola's video app</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="https://unpkg.com/@sidsbrmnn/scrollspy@1.x/dist/scrollspy.min.js"></script>
+    <style>
+        .fa-solid{
+            display: block;
+        }
+        ::-webkit-scrollbar {
+            width: 0.5rem;
+        }
+        
+        ::-webkit-scrollbar-track {
+            border-radius: 0.5rem;
+            background-color: #1e293b;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background-clip: content-box;
+            background-color: #334155;
+        }
+    </style>
+</head>
+<body class="bg-slate-800 h-screen relative">
+
+    <div id="appWrapper" class="sm:flex items-start justify-center gap-8 sm:p-4 max-w-[1920px] m-auto">
+
+        <!-- sidebar -->
+        <div id="sidebar" class="flex sm:block items-center justify-between gap-2 sm:w-24 sm:rounded-lg py-2 sm:py-4 px-2 bg-slate-700 text-center sm:h-[calc(100vh-2rem)] flex-shrink-0 sticky top-0 sm:top-4 z-30 transition-[top] duration-700">
+            <div id="logo">
+                <a href="#" class="block text-3xl text-red-500"><i class="fa-solid fa-clapperboard"></i></a>
+            </div>
+            <div id="tabSwitch" class="flex items-center justify-center gap-4 sm:block sm:mt-16 sm:space-y-6 text-xl text-slate-400">
+                <a href="#Trending" class="block text-white hover:text-white "><i class="fa-solid fa-fire"></i></a>
+                <a href="#Movies" class="block hover:text-white"><i class="fa-solid fa-film"></i></a>
+                <a href="#TvSeries" class="block hover:text-white"><i class="fa-solid fa-tv"></i></a>
+                <a href="#Bookmarks" class="block hover:text-white"><i class="fa-solid fa-bookmark"></i></a>
+            </div>
+            <div id="userImg" class="sm:absolute w-12 rounded-full overflow-hidden border-2 border-white sm:bottom-5 sm:left-2/4 sm:-translate-x-2/4">
+                <!-- <i class="fa-solid fa-user text-3xl text-red-500"></i> -->
+                <img src="img/avatar.jfif" alt="">
+            </div>
+        </div>
+        <!-- sidebar -->
+
+
+        <!-- main content -->
+        <div id="mainContent" class="w-full px-2 sm:px-0 ">
+            <div id="Search" class="relative">
+                <input class="w-full pl-12 pr-4 py-4 bg-transparent placeholder:text-slate-400 placeholder:text-xl text-white text-xl border-b border-transparent focus:outline-none focus:border-slate-400 transition-[border-color] ease-in" type="text" placeholder="Search for movies or TV series">
+                <i class="fa-solid fa-magnifying-glass text-white text-2xl absolute top-2/4 left-0 -translate-y-2/4 pointer-events-none"></i>
+            </div>
+            <main class="mt-6">
+                <div id="Trending" class="videoSection mb-12 scroll-mt-2">
+                    <h2 class="text-3xl font-lighter text-white">
+                        Trending
+                    </h2>
+                    <div class="videoRow grid grid-cols-[repeat(auto-fit,_minmax(min(20rem,_100%),_1fr))] mt-4 gap-8">
+                        <!-- Trending results -->
+                    </div>
+                </div>
+                <div id="Movies" class="videoSection mb-12 scroll-mt-2">
+                    <h2 class="text-3xl font-lighter text-white">
+                        Movies
+                    </h2>
+                    <div class="videoRow grid grid-cols-[repeat(auto-fit,_minmax(min(17rem,_100%),_1fr))] mt-4 gap-8">
+                        <!-- Movie results -->
+                    </div>
+                </div>
+                <div id="TvSeries" class="videoSection mb-12 scroll-mt-2">
+                    <h2 class="text-3xl font-lighter text-white">
+                        TV Series
+                    </h2>
+                    <div class="videoRow grid grid-cols-[repeat(auto-fit,_minmax(min(17rem,_100%),_1fr))] mt-4 gap-8">
+                       <!-- TV Series results -->
+                    </div>
+                </div>
+                <br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br>
+
+            </main>
+        </div>
+        <!-- main content -->
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
