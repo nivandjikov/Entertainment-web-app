@@ -59,13 +59,10 @@ async function loadNames() {
     return Number(b.release_date.slice(0, 4)) - Number(a.release_date.slice(0, 4));
   });
 
-
-
-
   result.objects.map((media) => {
     const ordinaryVideo = `<div class="video cursor-pointer group">
                               <div class="imgBox relative rounded-lg overflow-hidden">
-                                  <img src="${media.cover_photo}" alt="${media.title}" class="group-hover:scale-105 transition-all duration-700 object-cover aspect-video">
+                                  <img src="${media.cover_photo}" alt="${media.title}" class="group-hover:scale-105 transition-all duration-700 object-cover aspect-video max-h-72 w-full">
                                   <div class="bookmark absolute top-2 right-2 rounded-full bg-black/50 w-10 h-10 flex items-center justify-center z-20"><i class="fa-regular fa-bookmark text-base text-white"></i></div>
                                   <div class="cover absolute top-0 left-0 w-full h-full bg-black/50 opacity-0 group-hover:opacity-100 transition-[opacity] duration-700"></div>
                               </div>
@@ -92,44 +89,73 @@ async function loadNames() {
         break;
     }
 
-  
+  })
 
- })
+  //Тази функция пълни Trending видеата по random 
+  const trendingAmount = 3;
+  const currentTrendingIds = [];
 
- //Тази функция пълни Trending видеата по random 
- const trendingAmount = 3;
- const currentTrendingIds = [];
+  for (let i = 0; i < trendingAmount;) {
 
- for (let i = 0; i < trendingAmount;) {
+    const randomTrending = result.objects[Math.floor(Math.random() * result.objects.length)]
 
-  const randomTrending = result.objects[Math.floor(Math.random() * result.objects.length)]
-
-  if(randomTrending.trending && !currentTrendingIds.includes(randomTrending.id)){
-    currentTrendingIds.push(randomTrending.id);
-    trendingRow.innerHTML += `<div class="video relative rounded-lg overflow-hidden cursor-pointer group">
-                                <img src="${randomTrending.cover_photo}" alt="${randomTrending.cover_title}" class="group-hover:scale-105 transition-all duration-700 object-cover aspect-video">
-                                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/50"></div>
-                                <div class="cover absolute top-0 left-0 w-full h-full bg-black/50 opacity-0 group-hover:opacity-100 transition-[opacity] duration-700"></div>
-                                <div class="bookmark absolute top-2 right-2 rounded-full bg-black/50 w-10 h-10 flex items-center justify-center"><i class="fa-regular fa-bookmark text-base text-white"></i></div>
-                                <div class="absolute bottom-4 left-4">
-                                  <div class="description flex items-center justify-start gap-2 text-base text-white/80 mt-1">
-                                    <span>${randomTrending.release_date.slice(0, 4)}</span>
-                                    ·
-                                    <span class="flex items-center gap-1"><i class="fa-solid fa-${randomTrending.type === 'Movie' ? 'film' : 'tv'}"></i> ${randomTrending.type}</span>
-                                    ·
-                                    <span>${randomTrending.age_restriction}</span>
+    if(randomTrending.trending && !currentTrendingIds.includes(randomTrending.id)){
+      currentTrendingIds.push(randomTrending.id);
+      trendingRow.innerHTML += `<div class="video relative rounded-lg overflow-hidden cursor-pointer group max-h-72">
+                                  <img src="${randomTrending.cover_photo}" alt="${randomTrending.cover_title}" class="group-hover:scale-105 transition-all duration-700 object-cover aspect-video">
+                                  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/50"></div>
+                                  <div class="cover absolute top-0 left-0 w-full h-full bg-black/50 opacity-0 group-hover:opacity-100 transition-[opacity] duration-700"></div>
+                                  <div class="bookmark absolute top-2 right-2 rounded-full bg-black/50 w-10 h-10 flex items-center justify-center"><i class="fa-regular fa-bookmark text-base text-white"></i></div>
+                                  <div class="absolute bottom-4 left-4">
+                                    <div class="description flex items-center justify-start gap-2 text-base text-white/80 mt-1">
+                                      <span>${randomTrending.release_date.slice(0, 4)}</span>
+                                      ·
+                                      <span class="flex items-center gap-1"><i class="fa-solid fa-${randomTrending.type === 'Movie' ? 'film' : 'tv'}"></i> ${randomTrending.type}</span>
+                                      ·
+                                      <span>${randomTrending.age_restriction}</span>
+                                      </div>
+                                      <h3 class="title text-xl text-white">
+                                          ${randomTrending.title}
+                                      </h3>
                                     </div>
-                                    <h3 class="title text-xl text-white">
-                                        ${randomTrending.title}
-                                    </h3>
                                   </div>
-                                </div>
-                              </div>`;
-    i++;
+                                </div>`;
+      i++;
+    }
   }
 }
+loadNames().then(
+  function clientSideSearch(){
+    const cards = document.querySelectorAll('.video');
+    const searchBox = document.getElementById("SearchBox");
+  
+    console.log(cards)
+  
+    searchBox.addEventListener("input", liveSearch());
 
-console.log(currentTrendingIds);
- 
-}
-loadNames();
+      function liveSearch() {
+        searchBox.value;
+          //Use innerText if all contents are visible
+          //Use textContent for including hidden elements
+          for (var i = 0; i < cards.length; i++) {
+              if(cards[i].textContent.toLowerCase()
+                      .includes(searchBox.value.toLowerCase())) {
+                  cards[i].classList.remove("hidden");
+              } else {
+                  cards[i].classList.add("hidden");
+              }
+          }
+      }
+    
+      //A little delay
+      let typingTimer;               
+      let typeInterval = 200;  
+    
+      searchBox.addEventListener('keyup', () => {
+          clearTimeout(typingTimer);
+          typingTimer = setTimeout(liveSearch, typeInterval);
+      });
+  }
+);
+
+
