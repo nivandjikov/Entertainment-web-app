@@ -131,8 +131,6 @@ loadNames().then(
   
     console.log(cards)
   
-   
-
       function liveSearch() {
         searchBox.value;
           //Use innerText if all contents are visible
@@ -151,13 +149,15 @@ loadNames().then(
       let typingTimer;               
       let typeInterval = 200;  
 
-['input','search'].forEach( evt => 
-    searchBox.addEventListener(evt, () => {
-          clearTimeout(typingTimer);
-          typingTimer = setTimeout(liveSearch, typeInterval);
-      });)
-);
+      searchBox.addEventListener('input', () => {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(liveSearch, typeInterval);
+      });
     
+      searchBox.addEventListener('search', () => {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(liveSearch, typeInterval);
+      });
       
   }
 );
