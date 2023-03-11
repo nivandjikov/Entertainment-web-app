@@ -59,6 +59,8 @@ fetch('./data.json')
       
       window.addEventListener('load', () => {
       
+        movieRow.innerHTML = "";
+
       json.objects.map((media) => {
           const ordinaryVideo = `<div class="video cursor-pointer group">
                                     <div class="imgBox relative rounded-lg overflow-hidden">
@@ -77,7 +79,7 @@ fetch('./data.json')
                                         ${media.title}
                                     </h3>
                                 </div>`;
-      
+                               
           switch (media.type) {
             case 'Movie':
               movieRow.innerHTML += ordinaryVideo;
