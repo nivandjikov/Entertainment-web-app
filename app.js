@@ -57,11 +57,8 @@ fetch('./data.json')
         return Number(b.release_date.slice(0, 4)) - Number(a.release_date.slice(0, 4));
       });
       
-      window.addEventListener('load', () => {
-      
         movieRow.innerHTML = "";
-
-      json.objects.map((media) => {
+        json.objects.map((media) => {
           const ordinaryVideo = `<div class="video cursor-pointer group">
                                     <div class="imgBox relative rounded-lg overflow-hidden">
                                         <img src="${media.cover_photo}" alt="${media.title}" class="group-hover:scale-105 transition-all duration-700 object-cover aspect-video max-h-72 w-full">
@@ -79,7 +76,7 @@ fetch('./data.json')
                                         ${media.title}
                                     </h3>
                                 </div>`;
-                               
+                              
           switch (media.type) {
             case 'Movie':
               movieRow.innerHTML += ordinaryVideo;
@@ -90,14 +87,14 @@ fetch('./data.json')
             default:
               break;
           }
-      
+        
         })
       
-        //Тази функция пълни Trending видеата по random 
+         //Тази функция пълни Trending видеата по random 
         const trendingAmount = 3;
         const currentTrendingIds = [];
-        
-        
+          
+          
 
         for (let i = 0; i < trendingAmount;) {
       
@@ -127,10 +124,8 @@ fetch('./data.json')
                                       document.querySelectorAll('.TrendingSkeleton')[i].classList.add('hidden');
             i++;
           }
-        }
-      })
-          
-   })
+        }     
+      });
 
    
 
@@ -246,7 +241,3 @@ fetch('./data.json')
       
 //   }
 // );
-
-window.addEventListener('load', () => {
-  console.log('ready');
-})
