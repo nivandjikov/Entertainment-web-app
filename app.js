@@ -125,7 +125,40 @@ fetch('./data.json')
             i++;
           }
         }     
-      });
+      })
+      .then(
+        function clientSideSearch(){
+          const cards = document.querySelectorAll('.video');
+          const searchBox = document.getElementById("SearchBox");
+        
+          console.log(cards)
+        
+            function liveSearch() {
+              searchBox.value;
+                //Use innerText if all contents are visible
+                //Use textContent for including hidden elements
+                for (var i = 0; i < cards.length; i++) {
+                    if(cards[i].textContent.toLowerCase()
+                            .includes(searchBox.value.toLowerCase())) {
+                        cards[i].classList.remove("hidden");
+                    } else {
+                        cards[i].classList.add("hidden");
+                    }
+                }
+            }
+          
+            //A little delay
+            let typingTimer;               
+            let typeInterval = 200;  
+      
+            searchBox.addEventListener('input', () => {
+              clearTimeout(typingTimer);
+              typingTimer = setTimeout(liveSearch, typeInterval);
+            });
+        
+            
+        }
+      );
 
    
 
