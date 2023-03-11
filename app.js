@@ -153,11 +153,7 @@ loadNames().then(
         clearTimeout(typingTimer);
         typingTimer = setTimeout(liveSearch, typeInterval);
       });
-    
-      searchBox.addEventListener('search', () => {
-        clearTimeout(typingTimer);
-        typingTimer = setTimeout(liveSearch, typeInterval);
-      });
+  
       
   }
 );
