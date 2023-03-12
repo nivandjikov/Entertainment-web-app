@@ -60,7 +60,7 @@ fetch('./data.json')
         movieRow.innerHTML = "";
         tvRow.innerHTML = "";
         json.objects.map((media) => {
-          const ordinaryVideo = `<div id="${media.id}" class="video cursor-pointer group">
+          const ordinaryVideo = `<div data-id="${media.id}" class="video cursor-pointer group">
                                     <div class="imgBox relative rounded-lg overflow-hidden">
                                         <img src="${media.cover_photo}" alt="${media.title}" class="group-hover:scale-105 transition-all duration-700 object-cover aspect-video w-full h-full max-h-64" loading="lazy" width="565" height="317">
                                         <div class="bookmark absolute top-2 right-2 rounded-full bg-black/50 w-10 h-10 flex items-center justify-center z-20"><i class="fa-regular fa-bookmark text-base text-white"></i></div>
@@ -101,7 +101,7 @@ fetch('./data.json')
       
           if(randomTrending.trending && !currentTrendingIds.includes(randomTrending.id)){
             currentTrendingIds.push(randomTrending.id);
-            trendingRow.innerHTML += `<div id="${randomTrending.id}" class="video relative rounded-lg overflow-hidden cursor-pointer group max-h-72">
+            trendingRow.innerHTML += `<div data-id="${randomTrending.id}" class="video relative rounded-lg overflow-hidden cursor-pointer group max-h-72">
                                         <img src="${randomTrending.cover_photo}" alt="${randomTrending.title}" class="group-hover:scale-105 transition-all duration-700 object-cover object-center aspect-video w-full h-full" width="565" height="317">
                                         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/50"></div>
                                         <div class="cover absolute top-0 left-0 w-full h-full bg-black/50 opacity-0 group-hover:opacity-100 transition-[opacity] duration-700"></div>
