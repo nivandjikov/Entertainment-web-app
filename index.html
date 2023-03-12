@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Nikola's video app">
+    <meta name="description" content="A project front end part of a Media site">
+    <meta name="keywords" content="Movies, TV Series, Trending Media">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
     <title>Nikola's video app</title>
+    <!-- favicon tags -->
+    <link rel="apple-touch-icon" sizes="180x180" href="source/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="source/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="source/favicon/favicon-16x16.png">
+    <link rel="manifest" href="source/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="https://unpkg.com/@sidsbrmnn/scrollspy@1.x/dist/scrollspy.min.js"></script>
@@ -46,13 +59,13 @@
         <!-- sidebar -->
         <div id="sidebar" class="flex sm:block items-center justify-between gap-2 sm:w-24 sm:rounded-lg py-2 sm:py-4 px-2 bg-slate-700 text-center sm:h-[calc(100vh-2rem)] flex-shrink-0 sticky top-0 sm:top-4 z-30 transition-[top] duration-700">
             <div id="logo">
-                <a href="#" class="block text-3xl text-red-500"><i class="fa-solid fa-clapperboard"></i></a>
+                <a href="#" name="Video App" class="block text-3xl text-red-500"><i class="fa-solid fa-clapperboard"></i></a>
             </div>
             <div id="tabSwitch" class="flex items-center justify-center gap-8 sm:block sm:mt-16 sm:space-y-8 text-xl text-slate-400">
-                <a href="#Trending" class="block text-white hover:text-white "><i class="fa-solid fa-fire"></i></a>
-                <a href="#Movies" class="block hover:text-white"><i class="fa-solid fa-film"></i></a>
-                <a href="#TvSeries" class="block hover:text-white"><i class="fa-solid fa-tv"></i></a>
-                <a href="#Bookmarks" class="block hover:text-white"><i class="fa-solid fa-bookmark"></i></a>
+                <a href="#Trending" name="Trending media" class="block text-white hover:text-white "><i class="fa-solid fa-fire"></i></a>
+                <a href="#Movies" name="Movies" class="block hover:text-white"><i class="fa-solid fa-film"></i></a>
+                <a href="#TvSeries" name="TV Series" class="block hover:text-white"><i class="fa-solid fa-tv"></i></a>
+                <a href="#Bookmarks" name="Bookmarks" class="block hover:text-white"><i class="fa-solid fa-bookmark"></i></a>
             </div>
             <div id="userImg" class="sm:absolute w-12 rounded-full overflow-hidden border-2 border-white sm:bottom-5 sm:left-2/4 sm:-translate-x-2/4">
                 <!-- <i class="fa-solid fa-user text-3xl text-red-500"></i> -->
@@ -73,10 +86,10 @@
                     <h2 class="text-3xl font-lighter text-white">
                         Trending
                     </h2>
-                    <div class="videoRow grid md:grid-cols-2 lg:grid-cols-3 mt-4 gap-8">
-                        <div class="TrendingSkeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="TrendingSkeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="TrendingSkeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
+                    <div class="videoRow grid sm:grid-cols-2 lg:grid-cols-4 mt-4 gap-8">
+                        <div class="TrendingSkeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="TrendingSkeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="TrendingSkeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
                     </div>
                 </div>
                 <div id="Movies" class="videoSection mb-12 scroll-mt-20 sm:scroll-mt-2">
@@ -84,20 +97,20 @@
                         Movies
                     </h2>
                     <div class="videoRow grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-4 gap-8">
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
                     </div>
                 </div>
                 <div id="TvSeries" class="videoSection mb-12 scroll-mt-20 sm:scroll-mt-2">
@@ -105,20 +118,20 @@
                         TV Series
                     </h2>
                     <div class="videoRow grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-4 gap-8">
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
-                        <div class="skeleton animate-pulse aspect-video rounded-lg w-full bg-gray-500 max-h-72"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
+                        <div class="skeleton animate-pulse aspect-[2/3] rounded-lg w-full bg-gray-500 max-h-96"></div>
                     </div>
                 </div>
                 <div id="Bookmarks" class="videoSection mb-12 scroll-mt-20 sm:scroll-mt-2">
