@@ -120,7 +120,7 @@ fetch('./data.json')
                                           </div>
                                         </div>
                                       </div>`;
-                                      document.querySelectorAll('.TrendingSkeleton')[i].classList.add('hidden');
+                                      document.querySelector('.TrendingSkeleton').remove();
             i++;
           }
         }     
