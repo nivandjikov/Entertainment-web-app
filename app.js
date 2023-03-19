@@ -183,13 +183,11 @@ window.addEventListener('load', () => {
     }
 
     bookmark.addEventListener('click', () => {
-
       if(bookmark.querySelector('.fa-bookmark').classList.contains('fa-regular')){
         individVideos.forEach(vid => {
           vid.querySelector('.fa-bookmark').classList.remove('fa-regular');
           vid.querySelector('.fa-bookmark').classList.add('fa-solid');
         });
-        console.log(bookmarksRow.querySelector('.video'))
         //Правим проверка дали има видеа в bookmarksRow, ако има тогава махаме текста, че няма bookmarks
         if(!bookmarksRow.querySelector('.video')){
           bookmarksRow.innerHTML = '';
@@ -224,3 +222,6 @@ window.addEventListener('load', () => {
 
 
 
+//Останаха 2 проблема за решаване с bookmarks:
+// 1. Да се добавят event listeners на cloneNode елементите
+// 2. Когато кликнеш на на трендинг видео, за да го добавиш към bookmarked, да не клонира html-a на трендинг видеото
