@@ -159,7 +159,75 @@ fetch('./data.json')
 
    
 window.addEventListener('load', () => {
+
+  const bookmarksRow = document.querySelector('#Bookmarks .videoRow');
+  const videos = document.querySelectorAll('.video');
+
+  videos.forEach(video => {
+
+    const videoId = video.getAttribute('data-id');
+    const individVideos = document.querySelectorAll(`[data-id="${videoId}"]`);
+    const bookmark = video.querySelector('.bookmark');
+
+    console.log(localStorage.getItem(videoId))
+
+    //Правим проверка дали се съдържа ключа за videoId в localstorage и ако да, то тогава за всяко видео добавяме правилните класове
+    if(localStorage.getItem(videoId)){
+      individVideos.forEach(vid => {
+        vid.querySelector('.fa-bookmark').classList.remove('fa-regular');
+        vid.querySelector('.fa-bookmark').classList.add('fa-solid');
+      });
+      //Добавяме bookmark видеото в реда на Bookmarks, ако вече не е добавено веднъж
+      if(!bookmarksRow.querySelector(`[data-id="${videoId}"]`)){
+        bookmarksRow.appendChild(video.cloneNode(true));
+      }
+    }
+
+    bookmark.addEventListener('click', () => {
+
+      if(bookmark.querySelector('.fa-bookmark').classList.contains('fa-regular')){
+        individVideos.forEach(vid => {
+          vid.querySelector('.fa-bookmark').classList.remove('fa-regular');
+          vid.querySelector('.fa-bookmark').classList.add('fa-solid');
+        });
+        console.log(bookmarksRow.querySelector('.video'))
+        //Правим проверка дали има видеа в bookmarksRow, ако има тогава махаме текста, че няма bookmarks
+        if(!bookmarksRow.querySelector('.video')){
+          bookmarksRow.innerHTML = '';
+        }
+        //След това правим проверка дали веднъж вече не сме го добавили видеото
+        if(!bookmarksRow.querySelector(`[data-id="${videoId}"]`)){
+          bookmarksRow.appendChild(video.cloneNode(true));
+          localStorage.setItem(video.getAttribute("data-id"), "bookmarked");
+        }
+      }else{
+        individVideos.forEach(vid => {
+          vid.querySelector('.fa-bookmark').classList.remove('fa-solid');
+          vid.querySelector('.fa-bookmark').classList.add('fa-regular');
+        });
+        bookmarksRow.removeChild(bookmarksRow.querySelector(`[data-id="${videoId}"]`))
+        localStorage.removeItem(video.getAttribute("data-id"));
+        //Правим проверка дали не са изтрити всички видеа, ако са изтрити добавяме текста, че няма bookmarks
+        if(!bookmarksRow.querySelector('.video')){
+          bookmarksRow.innerHTML = `<p class="text-lg italic text-white/70">You don't have any bookmarks</p>`;
+        }
+      }
+    })
+
+
+  });
+
+
+    // for (let i = 0; i < localStorage.length; i++) {
+    //   console.log(localStorage.key(i))
+    // }
+
+
+
   if (!bookmarskRow.hasChildNodes()) {
     bookmarskRow.innerHTML = `<p class="text-lg italic text-white/70">You don't have any bookmarks</p>`
   }
 })
+
+
+
