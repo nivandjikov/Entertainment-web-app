@@ -101,7 +101,7 @@ fetch('./data.json')
       
           if(randomTrending.trending && !currentTrendingIds.includes(randomTrending.id)){
             currentTrendingIds.push(randomTrending.id);
-            trendingRow.innerHTML += `<div data-id="${randomTrending.id}" class="video relative rounded-lg overflow-hidden cursor-pointer group max-h-72">
+            trendingRow.innerHTML += `<div data-id="${randomTrending.id}" class="video trending relative rounded-lg overflow-hidden cursor-pointer group max-h-72">
                                         <img src="${randomTrending.cover_photo}" alt="${randomTrending.title}" class="group-hover:scale-105 transition-all duration-700 object-cover object-center aspect-video w-full h-full" width="565" height="317">
                                         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/50"></div>
                                         <div class="cover absolute top-0 left-0 w-full h-full bg-black/50 opacity-0 group-hover:opacity-100 transition-[opacity] duration-700"></div>
@@ -169,8 +169,6 @@ window.addEventListener('load', () => {
     const individVideos = document.querySelectorAll(`[data-id="${videoId}"]`);
     const bookmark = video.querySelector('.bookmark');
 
-    console.log(localStorage.getItem(videoId))
-
     //Правим проверка дали се съдържа ключа за videoId в localstorage и ако да, то тогава за всяко видео добавяме правилните класове
     if(localStorage.getItem(videoId)){
       individVideos.forEach(vid => {
@@ -178,7 +176,8 @@ window.addEventListener('load', () => {
         vid.querySelector('.fa-bookmark').classList.add('fa-solid');
       });
       //Добавяме bookmark видеото в реда на Bookmarks, ако вече не е добавено веднъж
-      if(!bookmarksRow.querySelector(`[data-id="${videoId}"]`)){
+      //И правим проверка дали не копираме трендинг видеото, че там са различни стилизациите
+      if(!bookmarksRow.querySelector(`[data-id="${videoId}"]`) && !video.classList.contains('trending')){
         bookmarksRow.appendChild(video.cloneNode(true));
       }
     }
@@ -216,12 +215,6 @@ window.addEventListener('load', () => {
 
 
   });
-
-
-    // for (let i = 0; i < localStorage.length; i++) {
-    //   console.log(localStorage.key(i))
-    // }
-
 
 
   if (!bookmarskRow.hasChildNodes()) {
