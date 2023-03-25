@@ -1,14 +1,3 @@
-//Тази функция се ползва за тракинг на viewport-а, и според него се маркира
-//като активна иконата в сайдбара
-window.onload = function () {
-    scrollSpy('#tabSwitch', {
-        sectionSelector: '.videoSection',
-        targetSelector: '.block',
-        activeClass: 'text-white',
-        offset: 100
-    });
-}
-
 // Тази функция се ползва за скриване на сайдбара(header-a) на мобилна
 // когато се скролва надолу
 // const browserWidth = Math.max(
@@ -100,7 +89,7 @@ fetch('./data.json')
 
           if(checkIfIsBookmarked(media.id) == 'fa-solid'){
             bookmarksRow.innerHTML += ordinaryVideo;
-          }
+          };
 
         })
       
@@ -232,6 +221,15 @@ function checkForBookmarks(){
 window.addEventListener('load', () => {
   addEventListeners();
   checkForBookmarks()
+
+  //Тази функция се ползва за тракинг на viewport-а, и според него се маркира
+  //като активна иконата в сайдбара
+  scrollSpy('#tabSwitch', {
+    sectionSelector: '.videoSection',
+    targetSelector: '.block',
+    activeClass: 'text-white',
+    offset: 100
+  })
 })
 
 
