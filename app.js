@@ -47,8 +47,16 @@ window.onload = function () {
 const trendingRow = document.querySelector('#Trending .videoRow');
 const movieRow = document.querySelector('#Movies .videoRow');
 const tvRow = document.querySelector('#TvSeries .videoRow');
-const bookmarskRow = document.querySelector('#Bookmarks .videoRow')
+const bookmarksRow = document.querySelector('#Bookmarks .videoRow');
 
+//Тук правим проверка дали е добавено ID-то на видеото в localStorage и връщаме съответен клас за видеото
+function checkIfIsBookmarked(id){
+  if(localStorage.getItem(id)){
+    return 'fa-solid';
+  }else{
+    return 'fa-regular';
+  }
+}
 
 fetch('./data.json')
    .then(response => response.json())
@@ -60,10 +68,11 @@ fetch('./data.json')
         movieRow.innerHTML = "";
         tvRow.innerHTML = "";
         json.objects.map((media) => {
+
           const ordinaryVideo = `<div data-id="${media.id}" class="video cursor-pointer group">
                                     <div class="imgBox relative rounded-lg overflow-hidden">
                                         <img src="${media.cover_photo}" alt="${media.title}" class="group-hover:scale-105 transition-all duration-700 object-cover aspect-video w-full h-full max-h-64" loading="lazy" width="565" height="317">
-                                        <div class="bookmark absolute top-2 right-2 rounded-full bg-black/50 w-10 h-10 flex items-center justify-center z-20"><i class="fa-regular fa-bookmark text-base text-white"></i></div>
+                                        <div class="bookmark absolute top-2 right-2 rounded-full bg-black/50 w-10 h-10 flex items-center justify-center z-20"><i class="${checkIfIsBookmarked(media.id)} fa-bookmark text-base text-white"></i></div>
                                         <div class="cover absolute top-0 left-0 w-full h-full bg-black/50 opacity-0 group-hover:opacity-100 transition-[opacity] duration-700"></div>
                                     </div>
                                     <div class="description flex items-center justify-start gap-2 text-base text-slate-400 mt-1">
@@ -88,7 +97,11 @@ fetch('./data.json')
             default:
               break;
           }
-        
+
+          if(checkIfIsBookmarked(media.id) == 'fa-solid'){
+            bookmarksRow.innerHTML += ordinaryVideo;
+          }
+
         })
       
          //Тази функция пълни Trending видеата по random 
@@ -105,7 +118,7 @@ fetch('./data.json')
                                         <img src="${randomTrending.cover_photo}" alt="${randomTrending.title}" class="group-hover:scale-105 transition-all duration-700 object-cover object-center aspect-video w-full h-full" width="565" height="317">
                                         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/50"></div>
                                         <div class="cover absolute top-0 left-0 w-full h-full bg-black/50 opacity-0 group-hover:opacity-100 transition-[opacity] duration-700"></div>
-                                        <div class="bookmark absolute top-2 right-2 rounded-full bg-black/50 w-10 h-10 flex items-center justify-center"><i class="fa-regular fa-bookmark text-base text-white"></i></div>
+                                        <div class="bookmark absolute top-2 right-2 rounded-full bg-black/50 w-10 h-10 flex items-center justify-center"><i class="${checkIfIsBookmarked(randomTrending.id)} fa-bookmark text-base text-white"></i></div>
                                         <div class="absolute bottom-4 left-4">
                                           <div class="description flex items-center justify-start gap-2 text-base text-white/80 mt-1">
                                             <span>${randomTrending.release_date.slice(0, 4)}</span>
@@ -123,7 +136,7 @@ fetch('./data.json')
                                       document.querySelector('.TrendingSkeleton').remove();
             i++;
           }
-        }     
+        }    
       })
       .then(
         function clientSideSearch(){
@@ -157,71 +170,71 @@ fetch('./data.json')
         }
       );
 
-   
-window.addEventListener('load', () => {
 
-  const bookmarksRow = document.querySelector('#Bookmarks .videoRow');
+
+function bookmarksUpdate(id){
+  let selectedVideos = document.querySelectorAll(`[data-id="${id}"]`);
+  
+
+   if(localStorage.getItem(id)){
+    localStorage.removeItem(id);
+    selectedVideos.forEach(vid => {
+      if(vid.parentNode === bookmarksRow){
+        vid.remove();
+      }
+      bookmark = vid.querySelector('.fa-bookmark');
+      bookmark.classList.remove('fa-solid');
+      bookmark.classList.add('fa-regular');
+    });
+  }else{
+    localStorage.setItem(id, "bookmarked");
+    selectedVideos.forEach(vid => {
+      bookmark = vid.querySelector('.fa-bookmark');
+      bookmark.classList.add('fa-solid');
+      bookmark.classList.remove('fa-regular');
+      if(!(vid.parentNode === trendingRow)){
+        bookmarksRow.appendChild(vid.cloneNode(true));
+      }
+    });
+    bookmarksRow.querySelector(`[data-id="${id}"]`).addEventListener('click', () => {
+      bookmarksUpdate(id);
+    });    
+  }
+
+  checkForBookmarks();
+}
+
+function addEventListeners(){
   const videos = document.querySelectorAll('.video');
 
   videos.forEach(video => {
 
     const videoId = video.getAttribute('data-id');
-    const individVideos = document.querySelectorAll(`[data-id="${videoId}"]`);
-    const bookmark = video.querySelector('.bookmark');
-
-    //Правим проверка дали се съдържа ключа за videoId в localstorage и ако да, то тогава за всяко видео добавяме правилните класове
-    if(localStorage.getItem(videoId)){
-      individVideos.forEach(vid => {
-        vid.querySelector('.fa-bookmark').classList.remove('fa-regular');
-        vid.querySelector('.fa-bookmark').classList.add('fa-solid');
-      });
-      //Добавяме bookmark видеото в реда на Bookmarks, ако вече не е добавено веднъж
-      //И правим проверка дали не копираме трендинг видеото, че там са различни стилизациите
-      if(!bookmarksRow.querySelector(`[data-id="${videoId}"]`) && !video.classList.contains('trending')){
-        bookmarksRow.appendChild(video.cloneNode(true));
-      }
-    }
+    const bookmark = video.querySelector('.bookmark')
 
     bookmark.addEventListener('click', () => {
-      if(bookmark.querySelector('.fa-bookmark').classList.contains('fa-regular')){
-        individVideos.forEach(vid => {
-          vid.querySelector('.fa-bookmark').classList.remove('fa-regular');
-          vid.querySelector('.fa-bookmark').classList.add('fa-solid');
-        });
-        //Правим проверка дали има видеа в bookmarksRow, ако има тогава махаме текста, че няма bookmarks
-        if(!bookmarksRow.querySelector('.video')){
-          bookmarksRow.innerHTML = '';
-        }
-        //След това правим проверка дали веднъж вече не сме го добавили видеото
-        if(!bookmarksRow.querySelector(`[data-id="${videoId}"]`)){
-          bookmarksRow.appendChild(video.cloneNode(true));
-          localStorage.setItem(video.getAttribute("data-id"), "bookmarked");
-        }
-      }else{
-        individVideos.forEach(vid => {
-          vid.querySelector('.fa-bookmark').classList.remove('fa-solid');
-          vid.querySelector('.fa-bookmark').classList.add('fa-regular');
-        });
-        bookmarksRow.removeChild(bookmarksRow.querySelector(`[data-id="${videoId}"]`))
-        localStorage.removeItem(video.getAttribute("data-id"));
-        //Правим проверка дали не са изтрити всички видеа, ако са изтрити добавяме текста, че няма bookmarks
-        if(!bookmarksRow.querySelector('.video')){
-          bookmarksRow.innerHTML = `<p class="text-lg italic text-white/70">You don't have any bookmarks</p>`;
-        }
-      }
-    })
-
+      bookmarksUpdate(videoId)
+    });
 
   });
 
+}
 
-  if (!bookmarskRow.hasChildNodes()) {
-    bookmarskRow.innerHTML = `<p class="text-lg italic text-white/70">You don't have any bookmarks</p>`
+function checkForBookmarks(){
+  if (!(bookmarksRow.hasChildNodes())) {
+    bookmarksRow.innerHTML = `<p class="noBookmarks text-lg italic text-white/70">You don't have any bookmarks</p>`
+  }else{
+    bookmarksRow.removeChild(bookmarksRow.querySelector('.noBookmarks'))
   }
+}
+
+   
+window.addEventListener('load', () => {
+  addEventListeners();
+  checkForBookmarks()
 })
 
 
 
-//Останаха 2 проблема за решаване с bookmarks:
 // 1. Да се добавят event listeners на cloneNode елементите
 // 2. Когато кликнеш на на трендинг видео, за да го добавиш към bookmarked, да не клонира html-a на трендинг видеото
